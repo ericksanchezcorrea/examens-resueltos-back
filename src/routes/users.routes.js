@@ -6,7 +6,7 @@ import validateToken from "../middlewares/validateToken.js";
 const router = Router()
 
 router.post('/login', loginUser)
-router.post('/admin', createAdmin)
+router.post('/admin', validateToken, isSuperAdmin ,createAdmin)
 router.patch('/updatePassword', validateToken, updatePassword)
 router.delete('/admin/:id', validateToken, isSuperAdmin, deleteUser)
 
